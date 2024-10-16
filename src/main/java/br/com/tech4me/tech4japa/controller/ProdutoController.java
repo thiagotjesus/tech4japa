@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tech4me.tech4japa.service.ProdutoService;
 import br.com.tech4me.tech4japa.shared.ProdutoCompletoDTO;
-import br.com.tech4me.tech4japa.shared.ProdutoDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-/* @CrossOrigin(origins = "https://tech4japa.fly.dev") */
 @RestController
 @RequestMapping("/produtos")
 public class ProdutoController {
@@ -29,7 +27,7 @@ public class ProdutoController {
     private ProdutoService servico;
     
     @GetMapping()
-    public ResponseEntity<List<ProdutoDTO>> obterTodosProdutos() {
+    public ResponseEntity<List<ProdutoCompletoDTO>> obterTodosProdutos() {
         return new ResponseEntity<>(servico.obterTodosProdutos(), HttpStatus.OK);
     }
 

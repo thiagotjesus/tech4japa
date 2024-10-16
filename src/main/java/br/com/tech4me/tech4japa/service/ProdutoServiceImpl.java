@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import br.com.tech4me.tech4japa.model.Produto;
 import br.com.tech4me.tech4japa.repository.ProdutoRepository;
 import br.com.tech4me.tech4japa.shared.ProdutoCompletoDTO;
-import br.com.tech4me.tech4japa.shared.ProdutoDTO;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService{
@@ -19,10 +18,10 @@ public class ProdutoServiceImpl implements ProdutoService{
 
 
     @Override
-    public List<ProdutoDTO> obterTodosProdutos() {
+    public List<ProdutoCompletoDTO> obterTodosProdutos() {
         return repositorio.findAll()
                           .stream()
-                          .map(p -> ProdutoDTO.from(p))
+                          .map(p -> ProdutoCompletoDTO.from(p))
                           .toList();
     }
 
